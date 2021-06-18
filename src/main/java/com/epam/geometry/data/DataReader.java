@@ -1,11 +1,34 @@
 package com.epam.geometry.data;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DataReader {
 
     //TODO: implement this method using BufferedReader, do not throw original IOException, wrap it with your own
     public List<String> readLines(String filename) throws DataException {
-        throw new UnsupportedOperationException();
+
+        List<String> lines = new ArrayList<String>();
+        String line;
+
+        try (FileReader fileReader = new FileReader(filename);
+            BufferedReader buffer = new BufferedReader(fileReader);) {
+
+            while ((line = buffer.readLine()) != null) {
+                lines.add(line);
+            }
+
+        } catch (FileNotFoundException e) {
+            throw new DataException("FileNotFoundException", e);
+        } catch (IOException e) {
+            throw new DataException("IOException", e);
+        }
+
+        return lines;
     }
 }
