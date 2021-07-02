@@ -4,35 +4,35 @@ import java.util.Objects;
 
 public class Point {
 
-    double x;
-    double y;
+    double coordinateX;
+    double coordinateY;
 
-    public Point(double x, double y) {
-        this.x = x;
-        this.y = y;
+    public Point(double coordinateX, double coordinateY) {
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
     }
 
-    public double getX() {
-        return x;
+    public double getCoordinateX() {
+        return coordinateX;
     }
 
-    public void setX(double x) {
-        this.x = x;
+    public void setCoordinateX(double coordinateX) {
+        this.coordinateX = coordinateX;
     }
 
-    public double getY() {
-        return y;
+    public double getCoordinateY() {
+        return coordinateY;
     }
 
-    public void setY(double y) {
-        this.y = y;
+    public void setCoordinateY(double coordinateY) {
+        this.coordinateY = coordinateY;
     }
 
     @Override
     public String toString() {
         return "Point{" +
-                "x=" + x +
-                ", y=" + y +
+                "x=" + coordinateX +
+                ", y=" + coordinateY +
                 '}';
     }
 
@@ -45,11 +45,11 @@ public class Point {
             return false;
         }
         Point point = (Point) o;
-        return Double.compare(point.getX(), getX()) == 0 && Double.compare(point.getY(), getY()) == 0;
+        return Double.compare(point.getCoordinateX(), getCoordinateX()) == 0 && Double.compare(point.getCoordinateY(), getCoordinateY()) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getX(), getY());
+        return Objects.hash(getCoordinateX(), getCoordinateY());
     }
 }

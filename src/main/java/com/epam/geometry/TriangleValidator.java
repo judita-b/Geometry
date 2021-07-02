@@ -10,7 +10,7 @@ public class TriangleValidator {
     private static final String PATTERN = "^(\\d+(\\.\\d+)?\\s*){6}$";
 
     public boolean validate(String line) {
-        if (line.trim().matches(PATTERN)) { return true; }
+        if (line != null && line.trim().matches(PATTERN)) { return true; }
         return false;
     }
 }

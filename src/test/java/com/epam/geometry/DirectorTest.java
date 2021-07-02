@@ -20,14 +20,31 @@ public class DirectorTest {
     @Test
     public void testProcessShouldRunNormallyWhenValidInput() throws DataException {
 
-        Point a = new Point(1.0, 2.0);
-        Point b = new Point(3.0, 4.0);
-        Point c = new Point(5.0, 6.0);
-
-        List<Triangle> expected = Arrays.asList(new Triangle(a, b, c));
+        List<Triangle> expected = Arrays.asList(new Triangle(
+                new Point(1.0, 2.0),
+                new Point(3.0, 4.0),
+                new Point(5.0, 6.0)));
 
         DataReader reader = mock(DataReader.class);
-        when(reader.readLines(anyString())).thenReturn(Arrays.asList("1.0 2.0 3.0 4.0 5.0 6.0", "1.0 2.0 3.0 4.0 5.0"));
+        when(reader.readLines(anyString())).thenReturn(Arrays.asList("1.0z 2.0 3.0 4.0 5.0 6.0", "1.0 2.0 3.0 4.0 5.0"));
+
+        TriangleValidator validator = new TriangleValidator();
+        TriangleCreator creator = new TriangleCreator();
+
+        Director director = new Director(reader, validator, creator);
+
+        List<Triangle> result = director.process("file");
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testProcessShouldRunNormallyWhenInvalidInput() throws DataException {
+
+        List<Triangle> expected = Arrays.asList();
+
+        DataReader reader = mock(DataReader.class);
+        when(reader.readLines(anyString())).thenReturn(Arrays.asList("1.0 2.0 3.0 4.0 5.0 6.0", "1.0 2.0 4.0 5.0"));
 
         TriangleValidator validator = new TriangleValidator();
         TriangleCreator creator = new TriangleCreator();

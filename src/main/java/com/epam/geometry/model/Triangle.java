@@ -4,46 +4,46 @@ import java.util.Objects;
 
 public class Triangle {
 
-    Point a;
-    Point b;
-    Point c;
+    Point pointA;
+    Point pointB;
+    Point pointC;
 
-    public Triangle(Point a, Point b, Point c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+    public Triangle(Point pointA, Point pointB, Point pointC) {
+        this.pointA = pointA;
+        this.pointB = pointB;
+        this.pointC = pointC;
     }
 
-    public Point getA() {
-        return a;
+    public Point getPointA() {
+        return pointA;
     }
 
-    public void setA(Point a) {
-        this.a = a;
+    public void setPointA(Point pointA) {
+        this.pointA = pointA;
     }
 
-    public Point getB() {
-        return b;
+    public Point getPointB() {
+        return pointB;
     }
 
-    public void setB(Point b) {
-        this.b = b;
+    public void setPointB(Point pointB) {
+        this.pointB = pointB;
     }
 
-    public Point getC() {
-        return c;
+    public Point getPointC() {
+        return pointC;
     }
 
-    public void setC(Point c) {
-        this.c = c;
+    public void setPointC(Point pointC) {
+        this.pointC = pointC;
     }
 
     @Override
     public String toString() {
         return "Triangle{" +
-                "a=" + a +
-                ", b=" + b +
-                ", c=" + c +
+                "a=" + pointA +
+                ", b=" + pointB +
+                ", c=" + pointC +
                 '}';
     }
 
@@ -56,11 +56,11 @@ public class Triangle {
             return false;
         }
         Triangle triangle = (Triangle) o;
-        return Objects.equals(getA(), triangle.getA()) && Objects.equals(getB(), triangle.getB()) && Objects.equals(getC(), triangle.getC());
+        return Objects.equals(getPointA(), triangle.getPointA()) && Objects.equals(getPointB(), triangle.getPointB()) && Objects.equals(getPointC(), triangle.getPointC());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getA(), getB(), getC());
+        return Objects.hash(getPointA(), getPointB(), getPointC());
     }
 }

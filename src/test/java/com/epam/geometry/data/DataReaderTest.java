@@ -25,4 +25,13 @@ public class DataReaderTest {
 
         assertEquals(0, lines.size());
     }
+
+    @Test (expected = DataException.class)
+    public void testReadLinesShouldReturnEmptyWhenFileNotFound() throws DataException {
+        DataReader dataReader = new DataReader();
+
+        List<String> lines = dataReader.readLines("files/noInputFile.txt");
+
+        assertEquals(0, lines.size());
+    }
 }

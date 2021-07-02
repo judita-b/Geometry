@@ -1,6 +1,5 @@
 package com.epam.geometry.logic;
 
-import com.epam.geometry.data.DataException;
 import com.epam.geometry.model.Point;
 import com.epam.geometry.model.Triangle;
 import org.junit.Test;
@@ -47,7 +46,7 @@ public class TriangleLogicTest {
 
         TriangleLogic triangleLogic = new TriangleLogic();
 
-        Boolean result = triangleLogic.checkIfTriangle(triangle);
+        Boolean result = triangleLogic.isTriangle(triangle);
         assertTrue(result);
     }
 
@@ -61,7 +60,7 @@ public class TriangleLogicTest {
 
         TriangleLogic triangleLogic = new TriangleLogic();
 
-        Boolean result = triangleLogic.checkIfTriangle(triangle);
+        Boolean result = triangleLogic.isTriangle(triangle);
         assertFalse(result);
     }
 }
